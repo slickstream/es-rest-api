@@ -1,12 +1,11 @@
 {
   "name": "@slickstream/es-rest-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "REST API for Slickstream's Engagement Suite",
   "main": "./lib/es-rest-api.js",
-  "module": "./esm/es-rest-api.js",
-  "types": "./esm/es-rest-api.d.ts",
+  "types": "./lib/es-rest-api.d.ts",
   "scripts": {
-    "build": "tsc -b --force && tsc -p tsconfig.esm.json",
+    "build": "tsc -p tsconfig.json",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
