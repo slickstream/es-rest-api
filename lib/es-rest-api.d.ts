@@ -85,8 +85,7 @@ export interface SlickstreamRestApiPageDescriptor {
     title?: string;
     description?: string;
     favorites: number;
-    favoritesPad: number;
-    thumbnailImageUrl?: string;
+    imageUrl?: string;
 }
 export interface SlickstreamRestApiMemberDescriptor {
     email: string;
