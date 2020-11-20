@@ -81,7 +81,7 @@ export interface SlickstreamRestApiIndexSummaryAnalytics {
 export interface SlickstreamRestApiPageDescriptor {
     id: string;
     originalUrl: string;
-    added: number;
+    published: number;
     title?: string;
     description?: string;
     favorites: number;
