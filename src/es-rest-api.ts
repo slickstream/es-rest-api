@@ -129,6 +129,7 @@ export interface SlickstreamRestApiPageDescriptor {
   published: number;
   title?: string;
   description?: string;
+  author?: string;
   favorites: number;
   imageUrl?: string;
 }
