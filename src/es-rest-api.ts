@@ -143,12 +143,9 @@ export interface SlickstreamRestApiPageDescriptor {
 
 export interface SlickstreamRestApiMemberDescriptor {
   email: string;
-  name: string;
+  name?: string;
   allowContact: boolean;
   firstSeen: number;
-  firstSynced: number;
-  lastSeen: number;
-  totalFavorites: number;
   authType: string;
 }
 
