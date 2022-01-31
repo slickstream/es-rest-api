@@ -95,7 +95,6 @@ export interface SlickstreamRestApiGetRecommendationsResponse {
 export interface SlickstreamRestApiGetSiteMembersResponse {
   members: SlickstreamRestApiMemberDescriptor[];
   nextPageUrl?: string;
-  nextPageParam?: string;
 }
 
 export interface SlickstreamRestApiGetContentAnalyticsResponse {
@@ -142,6 +141,7 @@ export interface SlickstreamRestApiPageDescriptor {
 }
 
 export interface SlickstreamRestApiMemberDescriptor {
+  id: string;
   email: string;
   name?: string;
   allowContact: boolean;
