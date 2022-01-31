@@ -7,6 +7,7 @@ export declare class SlickstreamRestApiUrlFactory {
         siteMembers: string;
         siteContentAnalytics: string;
         auditSite: string;
+        hello: string;
     };
     static PARAMS: {
         apiKey: string;

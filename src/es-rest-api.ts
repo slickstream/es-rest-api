@@ -7,7 +7,8 @@ export class SlickstreamRestApiUrlFactory {
     recommendations: 'recommendations',
     siteMembers: 'site-members',
     siteContentAnalytics: 'site-content-analytics',
-    auditSite: 'audit-site'
+    auditSite: 'audit-site',
+    hello: 'hello',
   };
   static PARAMS = {
     apiKey: 'apiKey',
