@@ -8,11 +8,13 @@ export declare class SlickstreamRestApiUrlFactory {
         siteContentAnalytics: string;
         auditSite: string;
         hello: string;
+        members: string;
     };
     static PARAMS: {
         apiKey: string;
         pageUrl: string;
         count: string;
+        siteCode: string;
     };
     private baseApiUrl;
     private apiKey;
@@ -50,6 +52,7 @@ export interface SlickstreamRestApiGetRecommendationsResponse {
 export interface SlickstreamRestApiGetSiteMembersResponse {
     members: SlickstreamRestApiMemberDescriptor[];
     nextPageUrl?: string;
+    nextPageParam?: string;
 }
 export interface SlickstreamRestApiGetContentAnalyticsResponse {
     items: SlickstreamRestApiSiteContentItemAnalytics[];

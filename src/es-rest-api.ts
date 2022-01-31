@@ -9,11 +9,13 @@ export class SlickstreamRestApiUrlFactory {
     siteContentAnalytics: 'site-content-analytics',
     auditSite: 'audit-site',
     hello: 'hello',
+    members: 'members',
   };
   static PARAMS = {
     apiKey: 'apiKey',
     pageUrl: 'pageUrl',
-    count: 'count'
+    count: 'count',
+    siteCode: 'site',
   };
 
   private baseApiUrl: string;
@@ -23,41 +25,44 @@ export class SlickstreamRestApiUrlFactory {
     this.apiKey = apiKey;
   }
   getSite(): string {
-    return this.getUrl(SlickstreamRestApiUrlFactory.PATHS.site).toString();
+    return this.getUrl(SlickstreamRestApiUrlFactory.PATHS.site, null).toString();
   }
 
   getPages(): string {
-    return this.getUrl(SlickstreamRestApiUrlFactory.PATHS.pages).toString();
+    return this.getUrl(SlickstreamRestApiUrlFactory.PATHS.pages, null).toString();
   }
 
   getPage(pageUrl: string): string {
-    const result = this.getUrl(SlickstreamRestApiUrlFactory.PATHS.page);
+    const result = this.getUrl(SlickstreamRestApiUrlFactory.PATHS.page, null);
     result.searchParams.set(SlickstreamRestApiUrlFactory.PARAMS.pageUrl, pageUrl);
     return result.toString();
   }
 
   getRecommendations(pageUrl: string, count: number): string {
-    const result = this.getUrl(SlickstreamRestApiUrlFactory.PATHS.recommendations);
+    const result = this.getUrl(SlickstreamRestApiUrlFactory.PATHS.recommendations, null);
     result.searchParams.set(SlickstreamRestApiUrlFactory.PARAMS.pageUrl, pageUrl);
     result.searchParams.set(SlickstreamRestApiUrlFactory.PARAMS.count, count.toString());
     return result.toString();
   }
 
   getSiteMembers(): string {
-    return this.getUrl(SlickstreamRestApiUrlFactory.PATHS.siteMembers).toString();
+    return this.getUrl(SlickstreamRestApiUrlFactory.PATHS.siteMembers, null).toString();
   }
 
   getSiteContentAnalytics(): string {
-    return this.getUrl(SlickstreamRestApiUrlFactory.PATHS.siteContentAnalytics).toString();
+    return this.getUrl(SlickstreamRestApiUrlFactory.PATHS.siteContentAnalytics, null).toString();
   }
 
   getAuditSite(): string {
-    return this.getUrl(SlickstreamRestApiUrlFactory.PATHS.auditSite).toString();
+    return this.getUrl(SlickstreamRestApiUrlFactory.PATHS.auditSite, null).toString();
   }
 
-  private getUrl(path: string): URL {
+  private getUrl(path: string, siteCode: string | null): URL {
     const url = new URL(path, this.baseApiUrl);
     url.searchParams.set(SlickstreamRestApiUrlFactory.PARAMS.apiKey, this.apiKey);
+    if (siteCode) {
+      url.searchParams.set(SlickstreamRestApiUrlFactory.PARAMS.siteCode, siteCode);
+    }
     return url;
   }
 }
@@ -90,6 +95,7 @@ export interface SlickstreamRestApiGetRecommendationsResponse {
 export interface SlickstreamRestApiGetSiteMembersResponse {
   members: SlickstreamRestApiMemberDescriptor[];
   nextPageUrl?: string;
+  nextPageParam?: string;
 }
 
 export interface SlickstreamRestApiGetContentAnalyticsResponse {
